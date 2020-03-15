@@ -1,0 +1,52 @@
+<div class= "container">
+    <div class="row">
+        <div class="col-10">
+            <div class="row">
+                
+                <div class="col-md-6 col-sm-12 col-lg-4 my-2" *ngFor="let movie of allMovies" > 
+                    <div class="card" >
+                        <div class="media-container">
+                                        <img class="card-img" [src]="movie.movieUrl"
+                                            width="244.53" height="244.53"
+                                        [alt]="movie.movieTitle">
+                                    </div>
+                
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-8"> 
+                                    <h3 class="card-title"> {{ movie.movieTitle }}</h3>
+                                </div>
+                                <div class="col-4"> 
+                                    <p class="text-right font-weight-bolder">Rs.150</p>
+                                </div>
+                            </div>  
+                            
+                            <div class="row">
+                                <div class="col-6"> 
+                                    <p class="card-text"> {{ movie.movieDirector }}</p>
+                                </div>
+                                <div class="col-6 text-center " >   
+                                    <div class="row ">
+                                        <div class="col-12 align-right my-2" >
+                                            <p class="card-text"> {{ movie.movieDate }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12 align-right" >
+                                            <div class="btn btn-primary " (click)="displayEditMovie(movie.movieId)" ><i class="material-icons align-bottom">create</i> Edit </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+

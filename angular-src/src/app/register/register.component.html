@@ -1,0 +1,94 @@
+<h1>Register</h1>
+<div class="container">
+<form #regForm="ngForm" class="form-inline">
+
+    <div class="table table-hover">
+    <tr>
+    <td>Name</td>
+    <td><input 
+        type="text" 
+        class="form-control"
+        id="name"
+        placeholder="name"
+        name="name" [(ngModel)]='empName'></td>
+   
+    </tr>    
+    <tr>
+    <td>Gender: </td>
+    <td><input type="radio" 
+        name="gender" 
+        id="male" 
+        value="male" [(ngModel)]='empGender'
+        > Male
+    <input type="radio"  name="gender"
+    id="female"
+value="female"[(ngModel)]='empGender'> Female
+    <input type="radio" name="gender"
+    id="other"
+    value="other" [(ngModel)]='empGender'>Other</td>
+    </tr>
+    
+    <tr>
+    <td>Address:</td>
+    <td><textarea name="address"   class="form-control"
+        id="Address"
+        placeholder="address"
+name="address" [(ngModel)]='empAddress'></textarea></td>
+    </tr>
+    
+    <tr>
+    <td>Country</td><td><select name="country">
+    <option value="india">India</option>
+    <option value="Us">US</option>
+    <option value="Australia">Australia</option>
+    <option value="Canada">Canada</option>
+    </select></td>
+    </tr>
+    
+    
+    <tr>
+    <td>Hobbies:</td>
+    <td><input type="checkbox" name="Llistening music" [(ngModel)]='empListening'>listening music
+    <input type="checkbox" name="playing" >playing
+    <input type="checkbox" name="reading books">reading books
+    
+    </td>
+    </tr>
+    
+    <tr>
+    <td>About:</td>
+    <td><textarea name="about"></textarea></td>
+    </tr>
+    
+    <tr>
+    <td>  <button type="submit"
+        class="btn btn-primary "
+        (click)="addEmp()">Register</button>
+</td>
+    <td><button type="submit" class="btn btn-success ">clear</button></td></tr>
+</div>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>empName</th>
+            <th>empGender</th>
+            <th>empAddress</th>
+            <th>empCountry</th>
+            <th>empHobbies</th>
+            <th>empComments</th>   
+        </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor = "let emp of employee">
+        <td>{{emp.Name}}</td>
+        <td>{{emp.Gender}}</td>
+        <td>{{emp.Address}}</td>
+        <td>{{emp.Listening}}</td>
+        <td>{{emp.Reading}}</td>
+        <td>{{emp.Playing}}</td>
+        <td>{{emp.Country}}</td>
+       </tr>
+    </tbody>
+</table>

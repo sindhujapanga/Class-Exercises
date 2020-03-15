@@ -1,0 +1,23 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+            <img class="card-img" [src]="item.img" width="200" height="300" >
+        </div>
+        
+    </div>
+
+    <div class="col-6">
+        <h4><b>Id: </b>{{ item.id }}</h4>
+        <h4><b>Name: </b>{{ item.name }}</h4>
+        <h4><b>Price: </b>{{ item.price }}</h4>
+        <h4><b>Description: </b>{{ item.description }}</h4>
+        <h4><b>Stock: </b>{{ item.stock }}</h4>
+        <h4><b>Remarks: </b>{{ item.remarks }}</h4>
+        <div class="row">
+            <button type="button" class="btn btn-danger " (click)="addToCart(item.id)">
+                <i class="material-icons align-bottom">shopping_cart</i>Add to cart </button>
+        </div>
+    </div>
+</div>
+</div>

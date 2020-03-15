@@ -1,0 +1,80 @@
+
+<p>employee works!</p>
+
+<button type="button"
+     class="btn btn-secondary"
+     (click)="toggleAdd()">
+    Add Employee
+    </button>
+
+
+<div *ngIf="show" class="container">
+
+    <div class="row">
+    <form 
+     #empForm = "ngForm"
+    class='form-inline border border-dark'>
+        <div class="col">
+        <label for='empName'>Name:</label></div> 
+        <div class="col">
+        <input 
+        type='text' 
+        class='form-control' 
+        name='empName' 
+        required 
+        #empN="ngModel" 
+        [(ngModel)]="employeeName" 
+        placeholder='Employee name'></div>
+        <div 
+         *ngIf ="empN.touched"
+        class="small text-danger">
+            <small *ngIf = "empN.errors?.required">  
+           * Please enter Name.
+       </small>
+       </div>
+        
+        <div class="col">
+            <label for='empSalary'>Employee Salary:</label></div>
+            
+            <div class="col">
+            <input 
+            type='text' 
+            class='form-control'
+            name='empSalary' 
+            required 
+            #empSal="ngModel" 
+            [(ngModel)]="employeeSalary" 
+            placeholder='Employee Salary' ></div>
+            <div 
+            *ngIf ="empSal.touched"
+            class="small text-danger">
+                 <small *ngIf = "empSal.errors?.required">  
+                * Please enter salary.
+            </small>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" (click)='addEmployee()' [disabled]='!empForm.valid'>+</button></div>
+            
+    </form>
+</div>
+
+</div>
+
+<div class="table-responsive m-5">
+ <table class="table table-striped">
+      <thead class="thead-dark">
+          <tr>
+              <th >Employee Id</th>  
+              <th>Employee Name</th> 
+              <th>Employee Salary</th>           
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let employee of employee">
+              <td>{{employee.empId}}</td>
+              <td>{{employee.empName}}</td>
+              <td>{{employee.empSalary}}</td>
+          </tr>
+      </tbody>
+    </table>
+</div>

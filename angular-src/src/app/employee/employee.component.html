@@ -1,0 +1,83 @@
+<p>employee works!</p>
+
+
+<button class="btn btn-success" (click)='Toggle()'>
+    Toggle
+</button>
+
+<form #empForm="ngForm" class="form-inline">
+    <label for="name">name:</label>
+    <input 
+        type="text" 
+        class= 'form-cotrol from control-sm'
+        id="name" 
+        placeholder="name" 
+        name="name" 
+        required
+        #empName="ngModel"
+        [(ngModel)]="employeeName">
+    <div 
+            *ngIf="empName.touched"
+            class="small text-danger">
+        
+          <small *ngIf="empName.errors?.required">Please Enter Name</small>
+    </div>
+    <label for="sal">Salary:</label>
+    <input type="text" 
+    name="salary"
+    id="sal" 
+    class= 'form-cotrol from control-sm'
+    placeholder="sal" name="sal" 
+    required
+    #empSalary="ngModel"
+    [(ngModel)]="employeeSalary">
+    <div 
+    *ngIf="empSalary.touched"
+    class="small text-danger">
+        <small *ngIf="empSalary.errors?.required">Please Enter Salary
+        </small>
+    </div>
+    <button 
+    type="button"
+    class='btn btn-primary small' 
+    (click)="addEmployee()"
+    [disabled]='!empForm.valid'>
+    +</button>
+  </form>
+
+<table class="table">
+    <thead>
+        <tr>
+        <th>
+          empId
+        </th>
+        <th>
+          empName  
+        </th>
+        <th>
+          empAddress
+        </th>
+        <th>
+          empCountry
+        </th>
+        <th>
+          empHobbies
+        </th>
+        </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor = "let employee of employees">
+           <td> {{ employee.eId }}</td>
+           <td> {{ employee.eName }}</td>
+           <td> {{ employee.eSalary }}</td>
+       </tr>
+     
+        <tr *ngFor="let employee of employees">
+            <td>{{ employee.eId }}</td>
+            <td>{{ employee.eName }}</td>
+            <td>{{ employee.eSalary }}</td>
+            <td><a><i class='material-icons' (click)="deleteEmployees(employee.eId)">delete</i></a></td>
+        </tr> 
+    </tbody>
+
+</table>

@@ -1,0 +1,143 @@
+<div class="container">
+    <div class="row mt-5">
+    <div class="col-3">
+	</div>
+	<div class="col-7">
+      <div class="card ">
+              <div class="card-header bg-dark text-white">
+               Registration
+               </div>
+                   <div class="card-body">
+                          <form 
+						   #registerForm = "ngForm">
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label for='Name'>Name:</label> 
+										<input 
+											type='text' 
+											id='Name' 
+											class="form-control"
+											name="Name" 
+											#regName= "ngModel"  
+											[(ngModel)]='rName' 
+											required/>
+									</div> 
+								</div>
+							</div>
+                                
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<div class="col">
+											<label for='Gender'>Gender:</label>  
+										</div>
+										<div class="col">
+											<input type="radio" name="Gender" id="Gender" value="Male"  [(ngModel)]='rMale' checked>Male 
+											<input type="radio" name="Gender" id="Gender" value="Female" [(ngModel)]='rFemale'> Female 
+										</div>
+									</div> 
+								</div>
+							</div>
+                                    
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label for='Address'>Address:</label>  
+										<input 
+											type='textarea'
+											class="form-control " 
+											id='Address' 
+											name="Address" 
+											#regAddress = "ngModel"
+											[(ngModel)]='rAddress'
+											required/>
+									</div> 
+								</div>
+							</div>
+                   
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<div class="col">
+											<label for='Country'>Country:</label> 
+										</div>
+										<div class="col">
+											<select name="Country" [(ngModel)]="rCountry" class="form-control">
+												<option value="India" selected>India</option>
+												<option value="USA">USA</option>
+												<option value="UK">UK</option>
+												<option value="Soviet">Soviet</option>
+											</select>
+										</div> 
+									</div>
+								</div>
+							</div>
+                   
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label >Hobbies: </label>
+										<div class="col">
+											<input 
+												type="checkbox" 
+												id="Games"
+												value="games"
+												name = 'rGames'
+												[(ngModel)]='rGames' 
+												> Games
+		
+											<input 
+												type="checkbox"  
+												id="Read" 
+												value="read"
+												name = 'rRead'
+												[(ngModel)]='rRead'
+												> Read
+										</div> 
+									</div>
+								</div>
+							</div>
+				   
+							<div class="row">
+								<div class="col">
+									<div class="form-group">
+										<label for='Comments'>Comments:</label>
+										<textarea class="form-control "
+												  name="Comments" 
+												  #regComments = "ngModel"
+												  [(ngModel)]='rComments'
+												  >
+										</textarea>
+									</div> 
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<button type="submit" 
+											class="btn btn-success"
+											(click)='showDetails()'
+											[disabled] = '!registerForm.valid'
+											>Register
+									</button>
+								</div>
+								<div class="col">
+									<button type="reset" class="btn btn-warning" (click)='unshowDetails()'>Reset</button>
+								</div>
+							</div>
+	                         </form>
+			            </div>
+			</div>
+		 </div>
+	 </div>
+</div>
+
+<div *ngIf="show" >
+	{{ userDetails[0] }}
+	{{ userDetails[1] }}
+	{{ userDetails[2] }}
+	{{ userDetails[3] }}
+	{{ userDetails[4] }}
+	{{ userDetails[5] }}
+	</div>
+	

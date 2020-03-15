@@ -1,0 +1,25 @@
+
+<h1>Welcome!!!</h1>
+<h2>{{ title }}</h2>
+<button 
+     type="button" 
+     class="btn btn-danger"
+     (click) = "displayData()">ok</button>
+<div>{{ data }}</div>
+<div class='col m-5'>
+<button 
+     type="button" 
+     class="btn btn-warning"
+     (click) = "decrementNumber()">
+     -
+    </button>
+    <input type="text" size="2" [(ngModel)]= "num">
+   
+    <button 
+     type="button" 
+     class="btn btn-warning"
+     (click) = "incrementNumber()">
+     +
+    </button>
+</div>
+  
